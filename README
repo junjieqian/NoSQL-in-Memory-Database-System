@@ -1,14 +1,7 @@
 Author, Junjie Qian <jqian@cse.unl.edu, jqian.unl@gmail.com>
-Nov. 26, 2013
+Aug. 2014
 
-This is Simple in-memory Database written in C++. All header files are in "./include", while others including Makefile is in "./src", all testcases are stored in "./testcases".
-
-To test run this, first enter the src dir, > make, the execution file will be generated. All inputs/outputs are stdin/stdout.
-
-To test application, two choices, one is input commands manually, another is run the test_simpledb.pl which requires you preset all the testcases and expected output in the testcases dir.
-
-Explain:
-	The data structure used in this application to manage the database is MAP, which operates in constant time but not space efficiently. One map "database" is to store all current latest values set, every set/get command first comes to this map operation. Another map, using vector as the value, "transaction" is to store the past values of the elements, once ROLLBACK happens the "database" fetch the last element of the value vector to restore back. One integer "cur_transaction" is to monitor how many transaction or BEGIN happpend.
-
-TODO:
-	This database right now only supports serial operation, not parallel operations accepted. If go to next step, multithread operations and atomic mutex are needed to provide real transaction commands and parallel.
+Continue from last version.
+Changes to make:
+1. data structure from map to tree
+2. transactional protection
